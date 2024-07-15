@@ -1,5 +1,7 @@
 import LandingPage from "../pages/LandingPage/LandingPage"
 import ErrorPage from "../components/ErrorPage/ErrorPage"
+import Header from "../components/Header/Header"
+import MainLayout from "../layout/MainLayout/MainLayout"
 
 /**
  * The router array using in RouterProvider component
@@ -8,7 +10,11 @@ import ErrorPage from "../components/ErrorPage/ErrorPage"
 const routes = [
     {
         path: '/',
-        element: <LandingPage />,
+        element: (
+            <MainLayout>
+                <LandingPage />
+            </MainLayout>
+        ),
         errorElement: <ErrorPage />
     }
 ]
