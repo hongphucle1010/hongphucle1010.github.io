@@ -7,7 +7,7 @@ const WelcomeSection = () => (
   >
     <section className="w-full flex flex-col justify-center text-3xl gap-1">
       <p className="text-4xl">👋🏼</p>
-      <h1 className={`${styles.myFont} font-bold mb-3`}>
+      <h1 className={`${styles.myFont} font-bold mb-3 dark:text-cyan-400`}>
         Hi, I&#39;m Hong Phuc
       </h1>
       <p className="text-xl">

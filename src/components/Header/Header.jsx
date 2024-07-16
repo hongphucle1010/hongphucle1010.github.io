@@ -1,6 +1,12 @@
 import styles from "./Header.module.scss";
 import { useState } from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
+import { useContext } from "react";
+import ReactSwitch from "react-switch";
+import { ThemeContext } from "../../config/ThemeConfig/ThemeConfig";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+
 const navItemArray = [
   { name: "Home", path: "/#" },
   { name: "Dummy Page", path: "/#dummy" },
@@ -42,6 +48,41 @@ const ThreeSlashButton = () => (
   </svg>
 );
 
+const ThemeSwitchButton = ({ darkMode, toggleDarkMode }) => {
+  const MoonIcon = (
+    <div
+      className="flex justify-center items-center w-full"
+      style={{
+        height: "100%",
+      }}
+    >
+      <FontAwesomeIcon icon={faMoon} className="text-white" />
+    </div>
+  );
+  const SunIcon = (
+    <div
+      className="flex justify-center items-center w-full"
+      style={{
+        height: "100%",
+      }}
+    >
+      <FontAwesomeIcon icon={faSun} className="text-white" />
+    </div>
+  );
+  return (
+    <ReactSwitch
+      checked={darkMode}
+      onChange={toggleDarkMode}
+      onColor="#334155"
+      onHandleColor="#000"
+      offColor="#52525B"
+      offHandleColor="#fff"
+      checkedIcon={MoonIcon}
+      uncheckedIcon={SunIcon}
+    />
+  );
+};
+
 const NavList = () => (
   <ul className={`hidden gap-4 lg:flex`}>
     {navItemArray.map((navItem) => (
@@ -51,11 +92,9 @@ const NavList = () => (
     ))}
   </ul>
 );
-NavList.propTypes = {
-  hidden: propTypes.bool,
-};
 
 const Header = () => {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   const [openNav, setOpenNav] = useState(false);
   const navigate = useNavigate();
 
@@ -65,7 +104,7 @@ const Header = () => {
 
   return (
     <div className="sticky top-0">
-      <nav className="w-full flex h-14 p-2 items-center justify-around border-blue-500 border-b bg-white">
+      <nav className="w-full flex h-14 p-2 items-center justify-around border-blue-500 border-b bg-white dark:bg-slate-900	dark:border-cyan-200 dark:text-slate-200">
         <button
           className={styles.header_name}
           onClick={() => handleNavigation("/")}
@@ -73,6 +112,10 @@ const Header = () => {
           Hồng Phúc Lê
         </button>
         <NavList />
+        <ThemeSwitchButton
+          darkMode={darkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
         <button
           className="h-6 w-6 lg:hidden"
           onClick={() => setOpenNav(!openNav)}
@@ -85,10 +128,11 @@ const Header = () => {
           {navItemArray.map((navItem) => (
             <div
               key={navItem.name}
-              className=" flex h-14 p-2 items-center justify-around bg-pink-200	opacity-90 hover:bg-green-200 hover:cursor-pointer"
+              className=" flex h-14 p-2 items-center justify-around bg-pink-200	opacity-90 hover:bg-green-200 hover:cursor-pointer dark:bg-slate-700 dark:text-slate-200"
             >
               <button onClick={() => handleNavigation(navItem.path)}>
-                {navItem.name}</button>
+                {navItem.name}
+              </button>
             </div>
           ))}
         </div>
@@ -100,3 +144,12 @@ const Header = () => {
 };
 
 export default Header;
+
+NavList.propTypes = {
+  hidden: PropTypes.bool,
+};
+
+ThemeSwitchButton.propTypes = {
+  darkMode: PropTypes.bool,
+  toggleDarkMode: PropTypes.func,
+};

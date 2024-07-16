@@ -18,7 +18,7 @@ export default function HeaderOfSection({
     <div className="flex justify-between w-full border-blue-300 border-b pb-2 items-center">
       <div>
         <span className="text-2xl mr-2">{icons}</span>
-        <span className={`${styles.myFont} font-bold sm:text-xl`}>{title}</span>
+        <span className={`${styles.myFont} font-bold sm:text-xl dark:text-cyan-400`}>{title}</span>
       </div>
       <div>
         {link ? (

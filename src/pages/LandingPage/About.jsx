@@ -4,12 +4,12 @@ import HeaderOfSection from "./HeaderOfSection";
 
 const StudySubsection = ({ year, school, address, occupation }) => (
   <div className="my-4">
-    <p className="text-sm text-blue-300">
+    <p className="text-sm text-blue-300 dark:text-cyan-400">
       {year.start} - {year.end}
     </p>
     <p className="flex justify-between">
       <span className="mr-8 font-bold">{school}</span>
-      <span className="italic text-blue-300">{address}</span>
+      <span className="italic text-blue-300 dark:text-cyan-400">{address}</span>
     </p>
     <p className="text-gray-400">{occupation}</p>
   </div>
@@ -23,7 +23,7 @@ const AboutSection = () => {
   return (
     <div
       id="about"
-      className="border-blue-500 border-t border-dashed pt-4 flex justify-center w-full"
+      className="border-blue-500 border-t border-dashed pt-4 flex justify-center w-full dark:border-cyan-200"
     >
       <section className="w-4/5 flex flex-col justify-center items-center gap-3">
         <HeaderOfSection
@@ -34,14 +34,14 @@ const AboutSection = () => {
         />
         <div className="flex flex-col w-full gap-2 lg:flex-row">
           <Subsection>
-            <p className={`${styles.myFont} font-medium`}>My Story</p>
+            <p className={`${styles.myFont} font-medium dark:text-cyan-300`}>My Story</p>
             <p className="my-4">
-              I am a passionate software developer who is always eager to learn
+              I am a passionate computer science student who is always eager to learn
               new technologies and improve my skills.
             </p>
           </Subsection>
           <Subsection>
-            <p className={`${styles.myFont} font-medium	`}>
+            <p className={`${styles.myFont} font-medium	dark:text-cyan-300`}>
               Where I have studied
             </p>
             <StudySubsection

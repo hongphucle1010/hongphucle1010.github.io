@@ -40,7 +40,7 @@ export default function Contact() {
             link="mailto:lhplhp10102004@gmail.com"
           />
           <Subsection
-            color="text-black"
+            color="text-black dark:text-slate-200"
             icon={faGithubAlt}
             text="GitHub: github.com/lhplhp10102004"
             link="https://github.com/lhplhp10102004/"
