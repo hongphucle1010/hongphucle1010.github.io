@@ -1,6 +1,5 @@
 import LandingPage from "../pages/LandingPage/LandingPage"
 import ErrorPage from "../components/ErrorPage/ErrorPage"
-import Header from "../components/Header/Header"
 import MainLayout from "../layout/MainLayout/MainLayout"
 
 /**
