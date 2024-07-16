@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import myPictureAtDamSen from "../../assets/images/myPictureAtDamSen.jpg";
 
 const WelcomeSection = () => (
   <div
@@ -23,7 +24,7 @@ const WelcomeSection = () => (
     </section>
     <div className="w-1/2 flex justify-center items-center container">
       <img
-        src="src/assets/images/myPictureAtDamSen.jpg"
+        src={myPictureAtDamSen}
         alt="My Picture"
         style={{
           width: "clamp(200px, 100%, 400px)",
@@ -64,7 +65,7 @@ const AboutSection = () => {
       <p className="text-sm text-pink-300">
         {year.start} - {year.end}
       </p>
-      <p>
+      <p className="flex justify-between">
         <span className="mr-8 font-bold">{school}</span>
         <span className="italic text-pink-300">{address}</span>
       </p>
