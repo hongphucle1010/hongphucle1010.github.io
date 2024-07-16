@@ -4,12 +4,12 @@ import HeaderOfSection from "./HeaderOfSection";
 
 const StudySubsection = ({ year, school, address, occupation }) => (
   <div className="my-4">
-    <p className="text-sm text-pink-300">
+    <p className="text-sm text-blue-300">
       {year.start} - {year.end}
     </p>
     <p className="flex justify-between">
       <span className="mr-8 font-bold">{school}</span>
-      <span className="italic text-pink-300">{address}</span>
+      <span className="italic text-blue-300">{address}</span>
     </p>
     <p className="text-gray-400">{occupation}</p>
   </div>
@@ -23,7 +23,7 @@ const AboutSection = () => {
   return (
     <div
       id="about"
-      className="border-pink-500 border-t border-dashed pt-4 flex justify-center w-full"
+      className="border-blue-500 border-t border-dashed pt-4 flex justify-center w-full"
     >
       <section className="w-4/5 flex flex-col justify-center items-center gap-3">
         <HeaderOfSection

@@ -1,5 +1,6 @@
 import LandingPage from "../pages/LandingPage/LandingPage"
 import ErrorPage from "../components/ErrorPage/ErrorPage"
+import ProjectIntro from "../pages/ProjectPages/ProjectIntro/ProjectIntro"
 import MainLayout from "../layout/MainLayout/MainLayout"
 
 /**
@@ -15,6 +16,14 @@ const routes = [
             </MainLayout>
         ),
         errorElement: <ErrorPage />
+    },
+    {
+        path: '/project',
+        element: (
+            <MainLayout>
+                < ProjectIntro/>
+            </MainLayout>
+        ),
     }
 ]
 

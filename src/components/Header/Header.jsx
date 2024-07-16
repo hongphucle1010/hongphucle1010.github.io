@@ -1,12 +1,13 @@
 import styles from "./Header.module.scss";
-import { useState, } from "react";
+import { useState } from "react";
 import propTypes from "prop-types";
 const navItemArray = [
-  { name: "Home", path: "#" },
-  { name: "Dummy Page", path: "#dummy" },
-  { name: "About", path: "#about" },
-  { name: "Contact", path: "#contact" },
+  { name: "Home", path: "/#" },
+  { name: "Dummy Page", path: "/#dummy" },
+  { name: "About", path: "/#about" },
+  { name: "Contact", path: "/#contact" },
 ];
+import { useNavigate } from "react-router-dom";
 
 const CloseButton = () => (
   <svg
@@ -56,12 +57,21 @@ NavList.propTypes = {
 
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <div className="sticky top-0">
-      <nav className="w-full flex h-14 p-2 items-center justify-around border-pink-500 border-b bg-white">
-        <a className={styles.header_name} href="/">
+      <nav className="w-full flex h-14 p-2 items-center justify-around border-blue-500 border-b bg-white">
+        <button
+          className={styles.header_name}
+          onClick={() => handleNavigation("/")}
+        >
           Hồng Phúc Lê
-        </a>
+        </button>
         <NavList />
         <button
           className="h-6 w-6 lg:hidden"
@@ -77,7 +87,8 @@ const Header = () => {
               key={navItem.name}
               className=" flex h-14 p-2 items-center justify-around bg-pink-200	opacity-90 hover:bg-green-200 hover:cursor-pointer"
             >
-              <a href={navItem.path}>{navItem.name}</a>
+              <button onClick={() => handleNavigation(navItem.path)}>
+                {navItem.name}</button>
             </div>
           ))}
         </div>

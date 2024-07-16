@@ -3,6 +3,7 @@ import HeaderOfSection from "./HeaderOfSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
 const Subsection = function ({ color, icon, text, link }) {
   return (
@@ -33,10 +34,16 @@ export default function Contact() {
             link="https://www.facebook.com/phuclehong1010"
           />
           <Subsection
-            color="text-pink-300"
+            color="text-red-300"
             icon={faEnvelope}
             text="Mail: lhplhp10102004@gmail.com"
             link="mailto:lhplhp10102004@gmail.com"
+          />
+          <Subsection
+            color="text-black"
+            icon={faGithubAlt}
+            text="GitHub: github.com/lhplhp10102004"
+            link="https://github.com/lhplhp10102004/"
           />
         </div>
       </div>
