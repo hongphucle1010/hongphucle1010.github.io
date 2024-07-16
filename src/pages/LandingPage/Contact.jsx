@@ -4,24 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-export default function Contact() {
-  const Subsection = function ({ color, icon, text, link }) {
-    return (
-      <p className={color}>
-        <FontAwesomeIcon icon={icon} className="mr-1" />
-        <a href={link} target="_blank">
-          {text}
-        </a>
-      </p>
-    );
-  };
-  Subsection.propTypes = {
-    color: PropTypes.string,
-    icon: PropTypes.object,
-    text: PropTypes.string,
-    link: PropTypes.string,
-  };
+const Subsection = function ({ color, icon, text, link }) {
+  return (
+    <p className={color}>
+      <FontAwesomeIcon icon={icon} className="mr-1" />
+      <a href={link} target="_blank">
+        {text}
+      </a>
+    </p>
+  );
+};
 
+export default function Contact() {
   return (
     <div id="contact" className="w-full flex justify-center">
       <div className="w-4/5">
@@ -49,3 +43,10 @@ export default function Contact() {
     </div>
   );
 }
+
+Subsection.propTypes = {
+  color: PropTypes.string,
+  icon: PropTypes.object,
+  text: PropTypes.string,
+  link: PropTypes.string,
+};

@@ -2,7 +2,7 @@ import styles from "./LandingPage.module.scss";
 import PropTypes from "prop-types";
 import HeaderOfSection from "./HeaderOfSection";
 
-const Subsection = ({ year, school, address, occupation }) => (
+const StudySubsection = ({ year, school, address, occupation }) => (
   <div className="my-4">
     <p className="text-sm text-pink-300">
       {year.start} - {year.end}
@@ -14,6 +14,10 @@ const Subsection = ({ year, school, address, occupation }) => (
     <p className="text-gray-400">{occupation}</p>
   </div>
 );
+
+const Subsection = function ({ children }) {
+  return <section className="w-full lg:w-1/2">{children}</section>;
+};
 
 const AboutSection = () => {
   return (
@@ -29,30 +33,30 @@ const AboutSection = () => {
           linkText={"View LinkedIn"}
         />
         <div className="flex flex-col w-full gap-2 lg:flex-row">
-          <section className="w-full lg:w-1/2">
+          <Subsection>
             <p className={`${styles.myFont} font-medium`}>My Story</p>
             <p className="my-4">
               I am a passionate software developer who is always eager to learn
               new technologies and improve my skills.
             </p>
-          </section>
-          <section className="w-full lg:w-1/2">
+          </Subsection>
+          <Subsection>
             <p className={`${styles.myFont} font-medium	`}>
               Where I have studied
             </p>
-            <Subsection
+            <StudySubsection
               year={{ start: "2022", end: "current" }}
               school="HCMUT"
               address="HCMC, Vietnam"
               occupation="Undergraduate Student"
             />
-            <Subsection
+            <StudySubsection
               year={{ start: "2019", end: "2022" }}
               school="VNU-HCM High School for the Gifted"
               address="HCMC, Vietnam"
               occupation="High School Student"
             />
-          </section>
+          </Subsection>
         </div>
       </section>
     </div>
@@ -61,7 +65,9 @@ const AboutSection = () => {
 
 export default AboutSection;
 
-Subsection.propTypes = {
+/* Props validation */
+
+StudySubsection.propTypes = {
   year: PropTypes.shape({
     start: PropTypes.string,
     end: PropTypes.string,
@@ -69,4 +75,8 @@ Subsection.propTypes = {
   school: PropTypes.string,
   address: PropTypes.string,
   occupation: PropTypes.string,
+};
+
+Subsection.propTypes = {
+  children: PropTypes.node,
 };
