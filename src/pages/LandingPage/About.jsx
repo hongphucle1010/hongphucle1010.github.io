@@ -29,7 +29,7 @@ const AboutSection = () => {
         <HeaderOfSection
           title="About Me"
           icons={"🧑🏼‍💻"}
-          link={"https://www.linkedin.com/in/lhplhp10102004/"}
+          link={"https://www.linkedin.com/in/hongphucle1010/"}
           linkText={"View LinkedIn"}
         />
         <div className="flex flex-col w-full gap-2 lg:flex-row">

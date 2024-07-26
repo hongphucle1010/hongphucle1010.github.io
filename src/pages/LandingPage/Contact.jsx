@@ -23,27 +23,27 @@ export default function Contact() {
         <HeaderOfSection
           title="Contact"
           icons={"📲"}
-          link={"mailto:lhplhp10102004@gmail.com"}
+          link={"mailto:hongphucle1010@gmail.com"}
           linkText={"Send email"}
         />
         <div className="pl-2 pt-2">
           <Subsection
             color="text-blue-500"
             icon={faFacebook}
-            text="Facebook: fb.com/phuclehong1010"
-            link="https://www.facebook.com/phuclehong1010"
+            text="Facebook: fb.com/hongphucle1010"
+            link="https://www.facebook.com/hongphucle1010"
           />
           <Subsection
             color="text-red-300"
             icon={faEnvelope}
-            text="Mail: lhplhp10102004@gmail.com"
-            link="mailto:lhplhp10102004@gmail.com"
+            text="Mail: hongphucle1010@gmail.com"
+            link="mailto:hongphucle1010@gmail.com"
           />
           <Subsection
             color="text-black dark:text-slate-200"
             icon={faGithubAlt}
-            text="GitHub: github.com/lhplhp10102004"
-            link="https://github.com/lhplhp10102004/"
+            text="GitHub: github.com/hongphucle1010"
+            link="https://github.com/hongphucle1010/"
           />
         </div>
       </div>
