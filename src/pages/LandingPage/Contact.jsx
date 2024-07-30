@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
 import HeaderOfSection from "./HeaderOfSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import { PersonalInfo } from "../../data/personal_info";
 
 const Subsection = function ({ color, icon, text, link }) {
   return (
@@ -23,28 +21,19 @@ export default function Contact() {
         <HeaderOfSection
           title="Contact"
           icons={"📲"}
-          link={"mailto:hongphucle1010@gmail.com"}
+          link={PersonalInfo.links.Email.link}
           linkText={"Send email"}
         />
         <div className="pl-2 pt-2">
-          <Subsection
-            color="text-blue-500"
-            icon={faFacebook}
-            text="Facebook: fb.com/hongphucle1010"
-            link="https://www.facebook.com/hongphucle1010"
-          />
-          <Subsection
-            color="text-red-300"
-            icon={faEnvelope}
-            text="Mail: hongphucle1010@gmail.com"
-            link="mailto:hongphucle1010@gmail.com"
-          />
-          <Subsection
-            color="text-black dark:text-slate-200"
-            icon={faGithubAlt}
-            text="GitHub: github.com/hongphucle1010"
-            link="https://github.com/hongphucle1010/"
-          />
+          {Object.keys(PersonalInfo.links).map((linkKey) => (
+            <Subsection
+              key={linkKey}
+              color={PersonalInfo.links[linkKey].color}
+              icon={PersonalInfo.links[linkKey].icon}
+              text={PersonalInfo.links[linkKey].text}
+              link={PersonalInfo.links[linkKey].link}
+            />
+          ))}
         </div>
       </div>
     </div>

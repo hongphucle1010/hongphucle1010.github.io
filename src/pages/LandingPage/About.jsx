@@ -1,6 +1,7 @@
 import styles from "./LandingPage.module.scss";
 import PropTypes from "prop-types";
 import HeaderOfSection from "./HeaderOfSection";
+import { PersonalInfo } from "../../data/personal_info";
 
 const StudySubsection = ({ year, school, address, occupation }) => (
   <div className="my-4">
@@ -29,33 +30,32 @@ const AboutSection = () => {
         <HeaderOfSection
           title="About Me"
           icons={"🧑🏼‍💻"}
-          link={"https://www.linkedin.com/in/hongphucle1010/"}
+          link={PersonalInfo.links.LinkedIn.link}
           linkText={"View LinkedIn"}
         />
         <div className="flex flex-col w-full gap-2 lg:flex-row">
           <Subsection>
-            <p className={`${styles.myFont} font-medium dark:text-cyan-300`}>My Story</p>
+            <p className={`${styles.myFont} font-medium dark:text-cyan-300`}>
+              My Story
+            </p>
             <p className="my-4">
-              I am a passionate computer science student who is always eager to learn
-              new technologies and improve my skills.
+              I am a passionate computer science student who is always eager to
+              learn new technologies and improve my skills.
             </p>
           </Subsection>
           <Subsection>
             <p className={`${styles.myFont} font-medium	dark:text-cyan-300`}>
               Where I have studied
             </p>
-            <StudySubsection
-              year={{ start: "2022", end: "current" }}
-              school="HCMUT"
-              address="HCMC, Vietnam"
-              occupation="Undergraduate Student"
-            />
-            <StudySubsection
-              year={{ start: "2019", end: "2022" }}
-              school="VNU-HCM High School for the Gifted"
-              address="HCMC, Vietnam"
-              occupation="High School Student"
-            />
+            {PersonalInfo.schools.map((school, index) => (
+              <StudySubsection
+                key={index}
+                year={school.year}
+                school={school.school}
+                address={school.address}
+                occupation={school.occupation}
+              />
+            ))}
           </Subsection>
         </div>
       </section>
