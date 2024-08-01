@@ -2,11 +2,11 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./routes";
 import { ThemeContext } from "./config/ThemeConfig/ThemeConfig";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const router = createBrowserRouter(routes);
 
-function App() {
+const App : React.FC = () => {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });

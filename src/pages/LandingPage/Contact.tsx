@@ -1,9 +1,14 @@
-import PropTypes from "prop-types";
 import HeaderOfSection from "./HeaderOfSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PersonalInfo } from "../../data/personal_info";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-const Subsection = function ({ color, icon, text, link }) {
+const Subsection: React.FC<SubsectionProps> = function ({
+  color,
+  icon,
+  text,
+  link,
+}) {
   return (
     <p className={color}>
       <FontAwesomeIcon icon={icon} className="mr-1" />
@@ -28,10 +33,10 @@ export default function Contact() {
           {Object.keys(PersonalInfo.links).map((linkKey) => (
             <Subsection
               key={linkKey}
-              color={PersonalInfo.links[linkKey].color}
-              icon={PersonalInfo.links[linkKey].icon}
-              text={PersonalInfo.links[linkKey].text}
-              link={PersonalInfo.links[linkKey].link}
+              color={PersonalInfo.links[linkKey]?.color}
+              icon={PersonalInfo.links[linkKey]?.icon as IconProp}
+              text={PersonalInfo.links[linkKey]?.text}
+              link={PersonalInfo.links[linkKey]?.link}
             />
           ))}
         </div>
@@ -40,9 +45,9 @@ export default function Contact() {
   );
 }
 
-Subsection.propTypes = {
-  color: PropTypes.string,
-  icon: PropTypes.object,
-  text: PropTypes.string,
-  link: PropTypes.string,
+type SubsectionProps = {
+  color: string | undefined;
+  icon: IconProp;
+  text: string | undefined;
+  link: string | undefined;
 };

@@ -7,7 +7,12 @@ import { ThemeContext } from "../../config/ThemeConfig/ThemeConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
-const navItemArray = [
+interface NavItem {
+  name: string;
+  path: string;
+}
+
+const navItemArray: NavItem[] = [
   { name: "Home", path: "/#" },
   { name: "Dummy Page", path: "/#dummy" },
   { name: "About", path: "/#about" },
@@ -15,7 +20,7 @@ const navItemArray = [
 ];
 import { useNavigate } from "react-router-dom";
 
-const CloseButton = () => (
+const CloseButton: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -32,7 +37,7 @@ const CloseButton = () => (
   </svg>
 );
 
-const ThreeSlashButton = () => (
+const ThreeSlashButton: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-6 w-6"
@@ -48,7 +53,7 @@ const ThreeSlashButton = () => (
   </svg>
 );
 
-const MySun = () => (
+const MySun: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -68,7 +73,15 @@ const MySun = () => (
   </svg>
 );
 
-const ThemeSwitchButton = ({ darkMode, toggleDarkMode }) => {
+interface ThemeSwitchButtonProps {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+const ThemeSwitchButton: React.FC<ThemeSwitchButtonProps> = ({
+  darkMode,
+  toggleDarkMode,
+}) => {
   const MoonIcon = (
     <div
       className="flex justify-center items-center w-full"
@@ -86,7 +99,7 @@ const ThemeSwitchButton = ({ darkMode, toggleDarkMode }) => {
         height: "100%",
       }}
     >
-      <MySun className="text-blue-400" />
+      <MySun />
     </div>
   );
   return (
@@ -103,7 +116,7 @@ const ThemeSwitchButton = ({ darkMode, toggleDarkMode }) => {
   );
 };
 
-const NavList = () => (
+const NavList: React.FC = () => (
   <ul className={`hidden gap-4 lg:flex`}>
     {navItemArray.map((navItem) => (
       <li key={navItem.name} className="mx-2">
@@ -113,12 +126,12 @@ const NavList = () => (
   </ul>
 );
 
-const Header = () => {
+const Header: React.FC = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   const [openNav, setOpenNav] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     navigate(path);
   };
 
@@ -167,9 +180,4 @@ export default Header;
 
 NavList.propTypes = {
   hidden: PropTypes.bool,
-};
-
-ThemeSwitchButton.propTypes = {
-  darkMode: PropTypes.bool,
-  toggleDarkMode: PropTypes.func,
 };

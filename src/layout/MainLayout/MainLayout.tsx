@@ -1,3 +1,4 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -6,7 +7,11 @@ import { useContext } from "react";
 import { ThemeContext } from "../../config/ThemeConfig/ThemeConfig";
 import styles from "./MainLayout.module.scss";
 
-const MainLayout = ({ children }) => {
+type MainLayoutProps = {
+  children: React.ReactNode;
+};
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <div className={`${darkMode ? "dark" : "light"}`}>

@@ -1,6 +1,5 @@
 import HeaderOfSection from "./HeaderOfSection";
-
-export default function DummyPage() {
+const DummyPage: React.FC = () => {
   return (
     <div id="dummy" className="w-full flex justify-center py-4">
       <div className="w-4/5">
@@ -11,9 +10,11 @@ export default function DummyPage() {
           linkText={"See more"}
         />
         <div className="mt-2">
-            <p>This section is unavailable at the moment.</p>
+          <p>This section is unavailable at the moment.</p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default DummyPage;

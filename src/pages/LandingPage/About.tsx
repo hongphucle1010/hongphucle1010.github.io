@@ -1,9 +1,14 @@
+import React from "react";
 import styles from "./LandingPage.module.scss";
-import PropTypes from "prop-types";
 import HeaderOfSection from "./HeaderOfSection";
 import { PersonalInfo } from "../../data/personal_info";
 
-const StudySubsection = ({ year, school, address, occupation }) => (
+const StudySubsection: React.FC<StudySubsectionProps> = ({
+  year,
+  school,
+  address,
+  occupation,
+}) => (
   <div className="my-4">
     <p className="text-sm text-blue-300 dark:text-cyan-400">
       {year.start} - {year.end}
@@ -16,7 +21,7 @@ const StudySubsection = ({ year, school, address, occupation }) => (
   </div>
 );
 
-const Subsection = function ({ children }) {
+const Subsection: React.FC<SubsectionProps> = ({ children }) => {
   return <section className="w-full lg:w-1/2">{children}</section>;
 };
 
@@ -65,18 +70,16 @@ const AboutSection = () => {
 
 export default AboutSection;
 
-/* Props validation */
-
-StudySubsection.propTypes = {
-  year: PropTypes.shape({
-    start: PropTypes.string,
-    end: PropTypes.string,
-  }),
-  school: PropTypes.string,
-  address: PropTypes.string,
-  occupation: PropTypes.string,
+type StudySubsectionProps = {
+  year: {
+    start: string;
+    end: string;
+  };
+  school: string;
+  address?: string;
+  occupation?: string;
 };
 
-Subsection.propTypes = {
-  children: PropTypes.node,
+type SubsectionProps = {
+  children: React.ReactNode;
 };

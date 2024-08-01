@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
 import styles from "./LandingPage.module.scss";
 import { useNavigate } from "react-router-dom";
 
-export default function HeaderOfSection({
+const HeaderOfSection: React.FC<HeaderOfSectionProps> = function ({
   icons,
   title,
   link,
@@ -11,14 +10,18 @@ export default function HeaderOfSection({
 }) {
   const navigate = useNavigate();
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     navigate(path);
   };
   return (
     <div className="flex justify-between w-full border-blue-300 border-b pb-2 items-center">
       <div>
         <span className="text-2xl mr-2">{icons}</span>
-        <span className={`${styles.myFont} font-bold sm:text-xl dark:text-cyan-400`}>{title}</span>
+        <span
+          className={`${styles.myFont} font-bold sm:text-xl dark:text-cyan-400`}
+        >
+          {title}
+        </span>
       </div>
       <div>
         {link ? (
@@ -26,9 +29,13 @@ export default function HeaderOfSection({
             {linkText} →
           </a>
         ) : navLink ? (
-          <button onClick={() => handleNavigation(navLink)} className="text-xs sm:text-sm">
+          <button
+            onClick={() => handleNavigation(navLink)}
+            className="text-xs sm:text-sm"
+          >
             {" "}
-            {linkText}{" →"}
+            {linkText}
+            {" →"}
           </button>
         ) : (
           ""
@@ -36,12 +43,14 @@ export default function HeaderOfSection({
       </div>
     </div>
   );
-}
-
-HeaderOfSection.propTypes = {
-  icons: PropTypes.string,
-  title: PropTypes.string,
-  link: PropTypes.string,
-  linkText: PropTypes.string,
-  navLink: PropTypes.string,
 };
+
+type HeaderOfSectionProps = {
+  icons: string;
+  title: string;
+  link?: string;
+  linkText: string;
+  navLink?: string;
+};
+
+export default HeaderOfSection;

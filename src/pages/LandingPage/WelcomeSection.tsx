@@ -1,7 +1,7 @@
 import myPictureAtDamSen from "../../assets/images/myPictureAtDamSen.jpg";
 import styles from "./LandingPage.module.scss";
 
-const WelcomeSection = () => (
+const WelcomeSection: React.FC = () => (
   <div
     className={`${styles.myStyle} w-4/5 flex justify-center items-center gap-3 flex-col-reverse lg:flex-row lg:px-20`}
   >
