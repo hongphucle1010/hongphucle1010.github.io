@@ -14,7 +14,7 @@ interface NavItem {
 
 const navItemArray: NavItem[] = [
   { name: "Home", path: "/#" },
-  { name: "Dummy Page", path: "/#dummy" },
+  { name: "Projects", path: "/#projects" },
   { name: "About", path: "/#about" },
   { name: "Contact", path: "/#contact" },
 ];

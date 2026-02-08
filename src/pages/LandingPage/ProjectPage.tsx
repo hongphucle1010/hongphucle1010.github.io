@@ -1,11 +1,11 @@
 import HeaderOfSection from "./HeaderOfSection";
-const DummyPage: React.FC = () => {
+const ProjectsSection: React.FC = () => {
   return (
-    <div id="dummy" className="w-full flex justify-center py-4">
+    <div id="projects" className="w-full flex justify-center py-4">
       <div className="w-4/5">
         <HeaderOfSection
-          title="Dummy Page"
-          icons={"🥳"}
+          title="Projects"
+          icons={"📁"}
           navLink={"/project"}
           linkText={"See more"}
         />
@@ -17,4 +17,4 @@ const DummyPage: React.FC = () => {
   );
 };
 
-export default DummyPage;
+export default ProjectsSection;

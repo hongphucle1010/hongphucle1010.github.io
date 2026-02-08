@@ -35,7 +35,7 @@ export const PersonalInfo: PersonalInfoType = {
   schools: [
     {
       year: { start: "2022", end: "current" },
-      school: "HCMUT",
+      school: "VNU-HCM HCMC University of Technology",
       address: "HCMC, Vietnam",
       occupation: "Undergraduate Student",
     },
@@ -43,7 +43,16 @@ export const PersonalInfo: PersonalInfoType = {
       year: { start: "2019", end: "2022" },
       school: "VNU-HCM High School for the Gifted",
       address: "HCMC, Vietnam",
-      occupation: "High School Student",
+      occupation: "High School Student (Math Specialization)",
+    },
+  ],
+  experiences: [
+    {
+      year: { start: "Jun. 2025", end: "Aug. 2025" },
+      role: "Backend Intern",
+      company: "FPT Corporation (FTown3)",
+      address: "HCMC, Vietnam",
+      description: "Golang Backend Development (Iris Framework)",
     },
   ],
 };
@@ -66,10 +75,22 @@ type SchoolType = {
   occupation?: string;
 };
 
+type ExperienceType = {
+  year: {
+    start: string;
+    end: string;
+  };
+  role: string;
+  company: string;
+  address?: string;
+  description?: string;
+};
+
 type PersonalInfoType = {
   name: string;
   links: {
     [key: string]: PersonalLink;
   };
   schools: SchoolType[];
+  experiences: ExperienceType[];
 };
