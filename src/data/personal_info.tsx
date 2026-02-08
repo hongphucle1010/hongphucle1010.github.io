@@ -50,7 +50,7 @@ export const PersonalInfo: PersonalInfoType = {
     {
       year: { start: "Jun. 2025", end: "Aug. 2025" },
       role: "Backend Intern",
-      company: "FPT Corporation (FTown3)",
+      company: "FPT Software (FTown3)",
       address: "HCMC, Vietnam",
       description: "Golang Backend Development (Iris Framework)",
     },
