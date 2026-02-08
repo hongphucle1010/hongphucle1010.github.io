@@ -1,4 +1,5 @@
-import meAtWebDev from "../../assets/images/meAtWebDev.jpg";
+// import meAtWebDev from "../../assets/images/meAtWebDev.jpg";
+import luckyPear from "../../assets/images/luckypear.png";
 import resumePdf from "../../assets/files/Resume.pdf";
 import styles from "./LandingPage.module.scss";
 
@@ -25,11 +26,11 @@ const WelcomeSection: React.FC = () => (
         className="mt-4 inline-flex w-fit items-center justify-center rounded-lg bg-blue-500 px-4 py-2 text-base font-medium text-white transition-colors hover:bg-blue-600 dark:bg-cyan-600 dark:hover:bg-cyan-700"
       >
         My Resume
-      </a>
+      </a>  
     </section>
     <div className="w-full flex justify-center items-center container">
       <img
-        src={meAtWebDev}
+        src={luckyPear}
         alt="My Picture"
         style={{
           width: "clamp(200px, 100%, 400px)",
